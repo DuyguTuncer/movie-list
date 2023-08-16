@@ -95,6 +95,7 @@ const clearBanner = () => {
   }
 };
 
+
 addMovieButton.addEventListener("click", addMovieButtonHandler);
 cancelMovieModal.addEventListener("click", cancelMovieModalHandler);
 addMovie.addEventListener("click", addMovieHandler);

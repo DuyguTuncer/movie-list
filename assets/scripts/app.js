@@ -6,6 +6,8 @@ const addMovie = document.getElementById("add");
 const deleteMovieModal = document.getElementById("delete-modal");
 const cancelDeteleButton = document.getElementById("cancel-delete");
 const confirmDeleteButton = document.getElementById("confirm-delete");
+const newMovieEl = document.createElement("li");
+
 const movieList = [];
 
 const toggleBackdrop = () => {
@@ -49,7 +51,7 @@ const getUserInput = () => {
 };
 
 const showAddedMovie = (id, title, imageUrl, rating) => {
-  const newMovieEl = document.createElement("li");
+  //   const newMovieEl = document.createElement("li");
   newMovieEl.className = "movie-element";
   newMovieEl.innerHTML = `
       <div class="movie-element__image">
@@ -78,7 +80,6 @@ const confirmDeletetingMovie = (movieId) => {
   const findMovieIdToDelete = movieList.find((movie) => {
     return movie.id === movieId;
   });
-  console.log("findMovieIdToDelete:", findMovieIdToDelete);
 };
 
 const deleteMovieModalHandler = () => {

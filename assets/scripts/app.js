@@ -87,6 +87,7 @@ const deleteMovieModalHandler = () => {
   toggleBackdrop();
 };
 
+
 const clearBanner = () => {
   const sectionEl = document.querySelector("section");
   if (movieList.length === 0) {

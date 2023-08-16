@@ -27,6 +27,12 @@ const addMovieHandler = () => {
   getUserInput();
 };
 
+const clearMovieInput = () => {
+  for (const userInput of userInputs) {
+    userInput.value = "";
+  }
+};
+
 const getUserInput = () => {
   const title = userInputs[0].value;
   const imageUrl = userInputs[1].value;

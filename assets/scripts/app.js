@@ -3,9 +3,8 @@ const backdrop = document.getElementById("backdrop");
 const movieModal = document.getElementById("add-modal");
 const cancelMovieModal = document.getElementById("cancel");
 const addMovie = document.getElementById("add");
-const deleteMovieModal = document.getElementById("delete-modal");
-const cancelDeteleButton = document.getElementById("cancel-delete");
-const confirmDeleteButton = document.getElementById("confirm-delete");
+const root = document.getElementById("movie-list");
+
 const movieList = [];
 
 const toggleBackdrop = () => {
@@ -44,8 +43,6 @@ const getUserInput = () => {
   movieList.push(movie);
   console.log("movieList:", movieList);
   showAddedMovie(movie.id, title, imageUrl, rating);
-  cancelMovieModalHandler();
-  clearBanner();
 };
 
 const showAddedMovie = (id, title, imageUrl, rating) => {
@@ -59,31 +56,7 @@ const showAddedMovie = (id, title, imageUrl, rating) => {
         <h2>${title}</h2>
         <p>${rating}/5 stars</p>
       </div>`;
-  const root = document.getElementById("movie-list");
   root.append(newMovieEl);
-
-  newMovieEl.addEventListener("click", deleteMovieModalHandler);
-  confirmDeleteButton.addEventListener(
-    "click",
-    confirmDeletetingMovie.bind(null, id)
-  );
-};
-
-const cancelDeletingMovie = () => {
-  deleteMovieModal.classList.remove("visible");
-  toggleBackdrop();
-};
-
-const confirmDeletetingMovie = (movieId) => {
-  const findMovieIdToDelete = movieList.find((movie) => {
-    return movie.id === movieId;
-  });
-  console.log("findMovieIdToDelete:", findMovieIdToDelete);
-};
-
-const deleteMovieModalHandler = () => {
-  deleteMovieModal.classList.add("visible");
-  toggleBackdrop();
 };
 
 const clearBanner = () => {
@@ -95,8 +68,6 @@ const clearBanner = () => {
   }
 };
 
-
 addMovieButton.addEventListener("click", addMovieButtonHandler);
 cancelMovieModal.addEventListener("click", cancelMovieModalHandler);
 addMovie.addEventListener("click", addMovieHandler);
-cancelDeteleButton.addEventListener("click", cancelDeletingMovie);
